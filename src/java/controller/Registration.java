@@ -145,8 +145,8 @@ public class Registration extends HttpServlet {
                 return;
             }
             
-            System.out.println("[Notice]:USER's information had been iserted to UDB completely. At RegisterConfirm.java");
-            System.out.println("[Notice]:UDB which has information is inputed in the session At RegisterConfirm.java");
+            System.out.println("[Notice]:USER's information has been iserted to UDB completely. At RegisterConfirm.java");
+            System.out.println("[Notice]:UDB which has USER's information is inputed in the session At RegisterConfirm.java");
             
             destination = "/WEB-INF/jsp/registrationconfirm.jsp";
             
