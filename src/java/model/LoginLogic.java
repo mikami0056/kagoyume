@@ -31,7 +31,7 @@ public class LoginLogic {
         
         UserDataDTO dto = new UserDataDTO();
         loginAccount.UDB2DTOMapping(dto);
-        UserDataDTO accountDTO = UserDataDAO.getInstance().searchNameAndPass(dto);
+        UserDataDTO accountDTO = UserDataDAO.getInstance().selectNameAndPass(dto);
             
         if(accountDTO != null){        
             loginAccount.DTO2UDBMapping(accountDTO);

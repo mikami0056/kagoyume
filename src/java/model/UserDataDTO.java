@@ -15,7 +15,7 @@ public class UserDataDTO {
     private String passWord;
     private String mail;
     private String address;
-    private Integer sum;
+    private int total;
     
     public static UserDataDTO getInstance(){
         return new UserDataDTO();
@@ -27,7 +27,7 @@ public class UserDataDTO {
         this.passWord = "";
         this.mail = "";
         this.address= "";
-        this.sum = 0;
+        this.total = 0;
     }
     public UserDataDTO(int userID, String userName, String passWord, String mail, String address, int total){
         this.userID = userID;
@@ -35,7 +35,7 @@ public class UserDataDTO {
         this.passWord = passWord;
         this.mail = mail;
         this.address = address;
-        this.sum = total;
+        this.total = total;
     }
     
     public int getUserID(){
@@ -73,11 +73,11 @@ public class UserDataDTO {
         this.address = address;
     }
     
-    public Integer getSum(){
-        return this.sum;
+    public Integer getTotal(){
+        return this.total;
     }
-    public void setSum(int sum){
-        this.sum = sum;
+    public void setTotal(int total){
+        this.total = total;
     }
     
 }

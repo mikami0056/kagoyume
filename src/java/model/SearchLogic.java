@@ -85,6 +85,7 @@ public class SearchLogic {
                     String index = el.getAttribute("index");
                     ItemDataBeans itemDetails = new ItemDataBeans();
                     //ProductIDからCodeに変更
+                    itemDetails.setIndex(index);
                     itemDetails.setPropaty("ProductID",getElementByName(el, "Code"));
                     itemDetails.setPropaty("Name",getElementByName(el, "Name"));
                     Element image = getElementByName(el, "Image");

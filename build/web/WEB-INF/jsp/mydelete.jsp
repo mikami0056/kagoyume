@@ -5,11 +5,10 @@
 --%>
 
 <%@page import="model.UserData"%>
-<%@page import="model.ModelHelper"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@include file="/WEB-INF/jsp/jsphelper.jsp" %><%-- セッションの取得や, ModelHelperの取得を行う --%>
-<jsp:include page="/WEB-INF/jsp/logwriter.jsp?where=mydata"/><%-- ログ出力用 --%>
+<jsp:include page="/WEB-INF/jsp/logwriter.jsp?where=mydelete"/><%-- ログ出力用 --%>
 <%
     UserData loginAccount = (UserData)hs.getAttribute("loginAccount");
 %>

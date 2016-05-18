@@ -4,14 +4,12 @@
     Author     : SHO
 --%>
 
-<%@page import="java.net.URL"%>
-<%@page import="model.ModelHelper"%>
-<%@page import="model.UserData"%>
-<%@page import="java.util.LinkedHashMap"%>
-<%@page import="org.w3c.dom.Element"%>
-<%@page import="java.util.HashMap"%>
-<%@page import="java.util.HashMap"%>
-<%@page import="model.ItemDataBeans"%>
+<%@page import="java.net.URL"
+        import="java.util.HashMap"
+        import="java.util.LinkedHashMap"
+        import="org.w3c.dom.Element"
+        import="model.UserData"
+        import="model.ItemDataBeans"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@include file="/WEB-INF/jsp/jsphelper.jsp" %><%-- セッションの取得や, ModelHelperの取得を行う --%>

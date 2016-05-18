@@ -17,10 +17,10 @@ public class ItemDataBeans implements Serializable{
     private String index;
     private String productID;
     private String name;
-    private Integer price;
+    private int price;
     private String imgUrl;
     private String stock;//在庫有無
-    private Integer number;//購入数
+    private int number;//購入数
     //DTOと連携させるための変数
     private int userID;
     private int type;
@@ -49,14 +49,14 @@ public class ItemDataBeans implements Serializable{
         return this.productID;
     }
     
-    public void setNumber(Integer n){
+    public void setNumber(int n){
         if(n == 0){
             this.number = 0;
         }else{
             this.number += n;
         }        
     }
-    public Integer getNumber(){
+    public int getNumber(){
         return this.number;
     }
     
@@ -67,10 +67,10 @@ public class ItemDataBeans implements Serializable{
         return this.name;
     }
     
-    public void setPrice(Integer price){
+    public void setPrice(int price){
         this.price = price;
     }
-    public Integer getPrice(){
+    public int getPrice(){
         return this.price;
     }
     

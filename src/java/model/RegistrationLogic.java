@@ -25,7 +25,7 @@ public class RegistrationLogic {
     public boolean checkUserDataInDB (UserData udb) throws SQLException{
         UserDataDTO dto = new UserDataDTO();
         udb.UDB2DTOMapping(dto);
-        return UserDataDAO.getInstance().checkUserData(dto);
+        return UserDataDAO.getInstance().selectUserData(dto);
     }
     
     public void insertUserData2DB (UserData udb) throws SQLException{

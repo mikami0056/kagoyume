@@ -4,7 +4,6 @@
     Author     : SHO
 --%>
 
-<%@page import="model.UserData"%>
 <%@page import="model.Common"%>
 <%@page import="model.ModelHelper"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>

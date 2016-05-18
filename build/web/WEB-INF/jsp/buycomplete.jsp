@@ -4,14 +4,12 @@
     Author     : SHO
 --%>
 
-<%@page import="java.util.Set"%>
-<%@page import="model.UserData"%>
-<%@page import="java.util.Map"%>
-<%@page import="model.ModelHelper"%>
-<%@page import="java.util.LinkedHashMap"%>
-<%@page import="java.util.LinkedHashSet"%>
-<%@page import="model.ItemDataBeans"%>
-<%@page import="java.util.List"%>
+<%@page import="java.util.Set"
+        import="java.util.Map"
+        import="java.util.List"
+        import="java.util.LinkedHashMap"
+        import="java.util.LinkedHashSet"
+        import="model.ItemDataBeans"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@include file="/WEB-INF/jsp/jsphelper.jsp" %><%-- セッションの取得や, ModelHelperの取得を行う --%>
 <jsp:include page="/WEB-INF/jsp/logwriter.jsp?where=buyconplete"/><%-- ログ出力用 --%>

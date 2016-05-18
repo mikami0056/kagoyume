@@ -3,13 +3,13 @@
     Created on : 2016/05/15, 23:45:40
     Author     : SHO
 --%>
-<%@page import="java.util.Set"%>
-<%@page import="model.UserData"%>
-<%@page import="java.util.Map"%>
-<%@page import="java.util.LinkedHashMap"%>
-<%@page import="java.util.LinkedHashSet"%>
-<%@page import="model.ItemDataBeans"%>
-<%@page import="java.util.List"%>
+<%@page import="java.util.Map"
+        import="java.util.Set"
+        import="java.util.List"
+        import="java.util.LinkedHashMap"
+        import="java.util.LinkedHashSet"
+        import="model.UserData"
+        import="model.ItemDataBeans"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@include file="/WEB-INF/jsp/jsphelper.jsp" %><%-- セッションの取得や, ModelHelperの取得を行う --%>

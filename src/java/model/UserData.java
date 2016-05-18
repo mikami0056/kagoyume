@@ -12,12 +12,12 @@ import java.io.Serializable;
  * @author SHO
  */
 public class UserData implements Serializable{
-    private Integer userID;
+    private int userID;
     private String name;
     private String passWord;
     private String mail;
     private String address;
-    private Integer sum;
+    private int total;
     
     public UserData(){
         this.userID = 0;
@@ -25,7 +25,7 @@ public class UserData implements Serializable{
         this.passWord = "";
         this.mail = "";
         this.address= "";
-        this.sum = 0;
+        this.total = 0;
     }
     
     public UserData(String name, String passWord, String mail, String address){
@@ -34,7 +34,7 @@ public class UserData implements Serializable{
         this.passWord = passWord;
         this.mail = mail;
         this.address= address;
-        this.sum = 0;
+        this.total = 0;
     }
     
     public int getUserID(){
@@ -72,31 +72,34 @@ public class UserData implements Serializable{
         this.address = address;
     }
     
-    public Integer getSum(){
-        return this.sum;
+    public Integer getTotal(){
+        return this.total;
     }
-    public void setSum(int sum){
-        this.sum += sum;
+    public void setTotal(int total){
+        this.total += total;
     }
     
+    //UseDataからUserDataDTOへ変換するためのメソッド
     public void UDB2DTOMapping(UserDataDTO dto){
         dto.setUserID(this.userID);
         dto.setName(this.name);
         dto.setPassWord(this.passWord);
         dto.setMail(this.mail);
         dto.setAddress(this.address);
-        dto.setSum(this.sum);
+        dto.setTotal(this.total);
     }
     
+    //UserDataDTOからUserDataへ変換するためのメソッド
     public void DTO2UDBMapping(UserDataDTO dto){
         this.userID = dto.getUserID();
         this.name = dto.getName();
         this.passWord = dto.getPassWord();
         this.mail = dto.getMail();
         this.address = dto.getAddress();
-        this.sum = dto.getSum();
+        this.total = dto.getTotal();
     }
     
+    //ユーザ情報を更新する際に使用するメソッド
     public void updateInformations(String name, String passWord, String mail, String address){
         this.name = name;
         this.passWord = passWord;

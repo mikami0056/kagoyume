@@ -89,14 +89,19 @@ public class Registration extends HttpServlet {
                 throw new Exception("不正なアクセスです");
             }
             
-            //登録情報変更の場合
-            if("REINPUT".equals(request.getParameter("reInput"))){
-                destination = "/WEB-INF/jsp/registration.jsp";
-                return;
-            }
+            String operation = request.getParameter("operation");
             
-            //登録する場合
-            if("REGIST".equals(request.getParameter("regist"))){
+            //registrationconfirm.jspからの画面遷移分岐
+            if(operation != null){
+            switch(operation){
+                
+                //登録情報変更の場合
+                case "REINPUT":
+                destination = "/WEB-INF/jsp/registration.jsp";
+                return; 
+                
+                //登録する場合
+                case "REGIST":
                 UserData udb = (UserData)session.getAttribute("udb");
                 
                 //同じユーザー名とパスワードがあれば登録不可
@@ -115,8 +120,13 @@ public class Registration extends HttpServlet {
                 session.removeAttribute("udb");
                 destination = "/WEB-INF/jsp/registrationcomplete.jsp";
                 return;
+                
+                default:
+                break;
             }
-            //確認画面
+            }
+            
+            //登録確認画面
             //registration.jspからパラメータを取得
             String userName = request.getParameter("userName").trim();
             String passWord = request.getParameter("password");

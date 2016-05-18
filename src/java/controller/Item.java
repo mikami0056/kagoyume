@@ -52,26 +52,21 @@ public class Item extends HttpServlet {
         String destination = "";
         
         try{
-            System.out.println(1);
             request.setCharacterEncoding("UTF-8");
             HttpSession session = request.getSession();
             //セッションから商品一覧を取得
             Map<String, ItemDataBeans> itemSearchList = (Map<String, ItemDataBeans>)session.getAttribute("itemSearchList");
-            System.out.println(2);
+          
             //クエリストリングからindexを取得し, 商品一覧から特定の商品を取得
             String index = request.getParameter("index");
-            System.out.println(3);
             ItemDataBeans item = itemSearchList.get(index);
-            System.out.println(4);
+            
             //item.jspに商品IDを渡す
             request.setAttribute("productID",item.getProductID());
-            System.out.println(5);
             //商品IDと商品を紐付けてセッションスコープに保存(ない場合)
             if((ItemDataBeans)session.getAttribute(item.getProductID()) == null){
-                System.out.println(6);
                 System.out.println("商品をセッションに追加:[商品名]["+item.getName() + "]");
                 session.setAttribute(item.getProductID(), item);
-                System.out.println(7);
             } else {
                 System.out.println("商品名["+item.getName() + "]はもうセッション内にあります");
             }

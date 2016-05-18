@@ -7,6 +7,7 @@
 <%@page import="model.ModelHelper"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@include file="/WEB-INF/jsp/jsphelper.jsp" %><%-- セッションの取得や, ModelHelperの取得を行う --%>
+<jsp:include page="/WEB-INF/jsp/logwriter.jsp?where=mydeleteresult"/><%-- ログ出力用 --%>
 <!DOCTYPE html>
 <html>
     <head>

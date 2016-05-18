@@ -23,8 +23,12 @@ public class UserDataDAO {
     public static UserDataDAO getInstance(){
         return new UserDataDAO();
     }
-    
-    public boolean checkUserData(UserDataDTO dto)throws SQLException{
+    /*
+    @登録可否をチェックするためのメソッド
+    @新規登録時に使用
+    @ユーザ入力フォ−ムより受け取ったユーザIDとパスワードが同一のものがいないか確認する
+    */
+    public boolean selectUserData(UserDataDTO dto)throws SQLException{
         
         Connection con = null;
         PreparedStatement pst = null;
@@ -57,36 +61,11 @@ public class UserDataDAO {
         return exist;
     }
     
-    public void insertUserData(UserDataDTO dto) throws SQLException{
-        
-        Connection con = null;
-        PreparedStatement pst = null;
-        String insertSql = "INSERT INTO user_t(name,password,mail,address,newDate) VALUES(?,?,?,?,?)";
-        System.out.println("inserUserData start");
-        
-        try{
-            con = DBManager.getConnection();
-            pst =  con.prepareStatement(insertSql);
-            pst.setString(1, dto.getName());
-            pst.setString(2, dto.getPassWord());
-            pst.setString(3, dto.getMail());
-            pst.setString(4, dto.getAddress());
-            pst.setTimestamp(5, new Timestamp(System.currentTimeMillis()));
-            pst.executeUpdate();
-            System.out.println("inserInformation start completed");
-            
-        }catch(SQLException e){
-            System.out.println(e.getMessage());
-            throw new SQLException(e);
-            
-        }finally{
-            if(con != null){
-                con.close();
-            }
-        }
-    }
-    
-    public UserDataDTO searchNameAndPass(UserDataDTO dto) throws SQLException{
+    /*
+    @ユーザ名とパスワードを使ってユーザ情報を取得するためのメソッド
+    @ログイン時に使用
+    */
+    public UserDataDTO selectNameAndPass(UserDataDTO dto) throws SQLException{
         
         Connection con = null;
         PreparedStatement pst = null;
@@ -125,23 +104,30 @@ public class UserDataDAO {
         return accountDTO;
     }
     
-    public void updateTotal2User(UserDataDTO dto) throws SQLException{
+    /*
+    @ユーザを新しく登録するためのメソッド
+    @新規登録時に使用
+    */
+    public void insertUserData(UserDataDTO dto) throws SQLException{
         
         Connection con = null;
         PreparedStatement pst = null;
-        String sql = "UPDATE user_t SET total = ? WHERE userID = ?;";
-        System.out.println("[Notice]updateTotal2User start");
+        String insertSql = "INSERT INTO user_t(name,password,mail,address,newDate) VALUES(?,?,?,?,?)";
+        System.out.println("inserUserData start");
         
         try{
-            
             con = DBManager.getConnection();
-            pst = con.prepareStatement(sql);
-            pst.setInt(1, dto.getSum());
-            pst.setInt(2, dto.getUserID());
+            pst =  con.prepareStatement(insertSql);
+            pst.setString(1, dto.getName());
+            pst.setString(2, dto.getPassWord());
+            pst.setString(3, dto.getMail());
+            pst.setString(4, dto.getAddress());
+            pst.setTimestamp(5, new Timestamp(System.currentTimeMillis()));
             pst.executeUpdate();
+            System.out.println("inserInformation start completed");
             
-        }catch(Exception e){
-            e.printStackTrace();
+        }catch(SQLException e){
+            System.out.println(e.getMessage());
             throw new SQLException(e);
             
         }finally{
@@ -149,9 +135,12 @@ public class UserDataDAO {
                 con.close();
             }
         }
-        System.out.println("[Notice]updateTotal2User finished");
     }
     
+    /*
+    @商品購入情報を購入テーブル(buy_t)に追加するためのメソッド
+    @商品購入時に使用
+    */
     public void insertTotal2Buy(ItemDataDTO idd) throws SQLException{
         
         Connection con = null;
@@ -181,6 +170,40 @@ public class UserDataDAO {
         System.out.println("[Notice]insertTotal2Buy finished");
     }
     
+    /*
+    @購入金額合計をユーザテーブル(user_t)に追加するためのメソッド
+    @商品購入時に使用
+    */
+    public void updateTotal2User(UserDataDTO dto) throws SQLException{
+        
+        Connection con = null;
+        PreparedStatement pst = null;
+        String sql = "UPDATE user_t SET total = ? WHERE userID = ?;";
+        System.out.println("[Notice]updateTotal2User start");
+        
+        try{
+            
+            con = DBManager.getConnection();
+            pst = con.prepareStatement(sql);
+            pst.setInt(1, dto.getTotal());
+            pst.setInt(2, dto.getUserID());
+            pst.executeUpdate();
+            
+        }catch(Exception e){
+            e.printStackTrace();
+            throw new SQLException(e);
+            
+        }finally{
+            if(con != null){
+                con.close();
+            }
+        }
+        System.out.println("[Notice]updateTotal2User finished");
+    }
+    
+    /*
+    @ユーザ情報を更新するためのメソッド
+    */
     public void updateUserData(UserDataDTO dto) throws SQLException{
         
         Connection con = null;
@@ -211,6 +234,10 @@ public class UserDataDAO {
         System.out.println("[Notice]updateUserInformations finished");
     }
     
+    /*
+    @ユーザ情報を削除するためのメソッド
+    @外部キーと主キーの関係上, 購入テーブル(buy_t), ユーザテーブル(user_t)の順でデータを削除している
+    */
     public void deleteUserData(UserDataDTO dto) throws SQLException{
         
         Connection con = null;

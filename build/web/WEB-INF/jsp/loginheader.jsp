@@ -7,7 +7,6 @@
 <%@page import="java.util.Set"%>
 <%@page import="java.util.Map"%>
 <%@page import="model.UserData"%>
-<%@page import="model.ModelHelper"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@include file="/WEB-INF/jsp/jsphelper.jsp" %>
 <%

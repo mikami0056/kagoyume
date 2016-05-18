@@ -3,14 +3,11 @@
     Created on : 2016/05/15, 21:06:18
     Author     : SHO
 --%>
-<%@page import="model.ModelHelper"%>
 <%@page import="model.UserData"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@include file="/WEB-INF/jsp/jsphelper.jsp" %><%-- セッションの取得や, ModelHelperの取得を行う --%>
+<jsp:include page="/WEB-INF/jsp/logwriter.jsp?where=registrationconfirm"/><%-- ログ出力用 --%>
 <%
-    HttpSession hs = request.getSession();
-    ModelHelper mh = (ModelHelper)hs.getAttribute("mh");
-    UserData loginAccount = (UserData)hs.getAttribute("loginAccount");
-    boolean exist = mh.existAccount(loginAccount);
     UserData udb = (UserData)hs.getAttribute("udb");
 %>
 <!DOCTYPE html>
@@ -31,12 +28,12 @@
         以上の内容で登録します。よろしいですか?<br>
         <form action="/kagoyume/Registration" method="POST">
             <input type="submit"  value="登録">
-            <input type="hidden" name="regist" value="REGIST">
+            <input type="hidden" name="operation" value="REGIST">
             <input type="hidden" name="id" value="<%= hs.getAttribute("idForRegist")%>">
         </form>
         <form action="/kagoyume/Registration" method="POST">
             <input type="submit" value="登録内容を変更">
-            <input type="hidden" name="reInput" value="REINPUT">
+            <input type="hidden" name="operation" value="REINPUT">
             <input type="hidden" name="id" value="<%= hs.getAttribute("idForRegist")%>">
         </form>
         <%= mh.indexJumper()%>

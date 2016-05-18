@@ -39,7 +39,7 @@ public class BuyLogic {
         for(ItemDataBeans item : items){
             if(item.getProductID().equals(productID)){
                 total = (item.getNumber() * item.getPrice());
-                loginAccount.setSum(total);
+                loginAccount.setTotal(total);
                 it = item;
                 it.setTotal(total);
                 items.remove(item);

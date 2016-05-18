@@ -13,9 +13,9 @@ import java.io.Serializable;
  */
 public class ItemDataDTO implements Serializable{
     
-    private Integer userID;
-    private Integer type;
-    private Integer total;
+    private int userID;
+    private int type;
+    private int total;
     
     public ItemDataDTO(){
         this.userID = 0;
@@ -27,7 +27,7 @@ public class ItemDataDTO implements Serializable{
         return new ItemDataBeans();
     }
     
-    public void setUserID(Integer userID){
+    public void setUserID(int userID){
         this.userID = userID;
     }
     public Integer getUserID(){

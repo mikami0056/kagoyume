@@ -3,13 +3,10 @@
     Created on : 2016/05/16, 17:16:24
     Author     : SHO
 --%>
-
 <%@page import="model.ModelHelper"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%
-    HttpSession hs = request.getSession();
-    ModelHelper mh = (ModelHelper)hs.getAttribute("mh");
-%>
+<%@include file="/WEB-INF/jsp/jsphelper.jsp" %><%-- セッションの取得や, ModelHelperの取得を行う --%>
+<jsp:include page="/WEB-INF/jsp/logwriter.jsp?where=error"/><%-- ログ出力用 --%>
 <!DOCTYPE html>
 <html>
     <head>

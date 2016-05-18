@@ -3,7 +3,6 @@
     Created on : 2016/05/15, 22:02:53
     Author     : SHO
 --%>
-<%@page import="model.ModelHelper"%>
 <%@page import="model.UserData"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@include file="/WEB-INF/jsp/jsphelper.jsp" %><%-- セッションの取得や, ModelHelperの取得を行う --%>

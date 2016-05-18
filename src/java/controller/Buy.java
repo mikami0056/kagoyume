@@ -139,37 +139,6 @@ public class Buy extends HttpServlet {
             //ユーザIDや個数などの情報の初期化
             item.propatyInit();
             
-            /*
-            Integer a = 0;
-            for(ItemDataBeans item : items){
-            if(item.getProductID().equals(productID)){
-                a = (item.getNumber() * item.getPrice());
-                loginAccount.setSum(a);
-                items.remove(item);
-                break;
-            }
-            }
-            */
-            
-            
-        /*    
-        UserDataDTO dto = new UserDataDTO();
-        loginAccount.UDB2DTOMapping(dto);
-        ItemDataDTO idd = new ItemDataDTO();
-        item.IDB2IDDMapping(idd);
-        /*
-        idd.setUserID(loginAccount.getUserID());
-        idd.setType(Integer.parseInt(request.getParameter("type")));
-        idd.setTotal(subTotal);
-        */
-        /*
-        try {
-            UserDataDAO.getInstance().updateTotal2User(dto);
-            UserDataDAO.getInstance().insertTotalMoneyByParchase(idd);
-        } catch (SQLException ex) {
-            Logger.getLogger(Buy.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        */
             destination = "/WEB-INF/jsp/buycomplete.jsp";
             
         }catch(Exception e){

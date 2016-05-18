@@ -4,16 +4,16 @@
     Author     : SHO
 --%>
 
-<%@page import="model.LogWriter"%>
-<%@page import="model.UserData"%>
-<%@page import="java.util.HashMap"%>
-<%@page import="java.util.LinkedHashMap"%>
-<%@page import="java.util.Map"%>
-<%@page import="org.w3c.dom.Element"%>
-<%@page import="java.util.ArrayList"%>
-<%@page import="java.net.URL"%>
-<%@page import="model.SearchLogic"%>
-<%@page import="model.ItemDataBeans"%>
+<%@page import="java.net.URL"
+        import="java.util.Map"
+        import="java.util.HashMap"
+        import="java.util.ArrayList"
+        import="java.util.LinkedHashMap"
+        import="org.w3c.dom.Element"
+        import="model.LogWriter"
+        import="model.UserData"
+        import="model.SearchLogic"
+        import="model.ItemDataBeans"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@include file="/WEB-INF/jsp/jsphelper.jsp" %><%-- セッションの取得や, ModelHelperの取得を行う --%>
