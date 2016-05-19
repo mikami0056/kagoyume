@@ -29,10 +29,11 @@
     <body>
         <h1>商品詳細</h1>
         <jsp:include page="/WEB-INF/jsp/loginheader.jsp"/>
-        <img src="<%= item.getImgUrl()%>">
-        名前:<%= item.getName()%><br>
-        値段:<%= item.getPrice()%><br>
-        在庫:<%= stockStatus%><br>
+        <img src="<%= item.getImgUrl()%>"><br>
+        名前：<%= item.getName()%><br>
+        <font face="sans-serif" color="#ff3366">
+        値段：¥<%= item.getPrice()%><br></font>
+        在庫：<%= stockStatus%><br>
         <form action="/kagoyume/Add" method="POST">
             <select name="buyNumber">
             <%for(int i = 1; i < 30; i++){ %>
@@ -42,9 +43,11 @@
             <input type="submit" name="add" value="カートに追加">
             <input type="hidden" name="productID" value="<%= productID%>">
         </form>
+        <hr>
         <form action="/kagoyume/Search" method="POST">
             <input type="submit" value="一覧へ戻る">
             <input type="hidden" name="flag" value="return">
         </form>
+         <br><%= mh.indexJumper()%>
     </body>
 </html>

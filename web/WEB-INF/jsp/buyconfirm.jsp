@@ -28,8 +28,10 @@
         <h2>以下の商品を購入します</h2>
         <p>名前：<%= item.getName()%></p>
         <p>個数：<%= item.getNumber()%></p>
-        <p>価格：<%= item.getPrice()%></p>
-        <p>合計：<%= item.getNumber()*item.getPrice()%></p>
+        <p><font face="sans-serif">
+        値段：¥ <%= item.getPrice()%></font></p>
+        <p><font face="sans-serif" color="#ff3366">
+        総計：¥ <%= item.getNumber()*item.getPrice()%></font></p>
         <form action="/kagoyume/Buy" method="POST">
             <label for="1">
             <input type="radio" name="type" value="1" id="1" checked>通常発送
@@ -40,9 +42,10 @@
             <label for="3">
             <input type="radio" name="type" value="3" id="3">特急発送
             </label>
+            <br>
             <input type="submit" value="購入">
             <input type="hidden" name="productID" value="<%= item.getProductID()%>">
         </form>
+        <br><%= mh.indexJumper()%>
     </body>
-    <%= mh.indexJumper()%>
 </html>

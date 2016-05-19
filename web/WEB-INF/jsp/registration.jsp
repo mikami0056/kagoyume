@@ -39,6 +39,7 @@
         
         <p>住所:<input type="text" name="address" value="<%if(udb != null){out.print(udb.getAddress());}%>" placeholder="住所">
         <% if(caution != null && caution.contains("address")){out.print("*必須事項");}%></p>
+        
         <% if(warning != null){out.print(warning);}%><br>   
         <input type="submit" value="確認画面へ">
         <input type="hidden" name="id" value="<%= hs.getAttribute("idForRegist")%>">

@@ -39,7 +39,6 @@ public class Registration extends HttpServlet {
             throws ServletException, IOException {
     }
     
-
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
      * Handles the HTTP <code>GET</code> method.
@@ -60,7 +59,6 @@ public class Registration extends HttpServlet {
         session.setAttribute("idForRegist", ((int)a * (int)b));
         RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/registration.jsp");
         dispatcher.forward(request, response);
-        
     }
 
     /**
@@ -93,37 +91,37 @@ public class Registration extends HttpServlet {
             
             //registrationconfirm.jspからの画面遷移分岐
             if(operation != null){
-            switch(operation){
+                switch(operation){
                 
-                //登録情報変更の場合
-                case "REINPUT":
-                destination = "/WEB-INF/jsp/registration.jsp";
-                return; 
-                
-                //登録する場合
-                case "REGIST":
-                UserData udb = (UserData)session.getAttribute("udb");
-                
-                //同じユーザー名とパスワードがあれば登録不可
-                if(!RegistrationLogic.getInstance().checkUserDataInDB(udb)){
-                    String warning = "登録できません. 別のユーザ名又はパスワードを入力してください";
-                    System.out.println("WARNING!!!");
-                    request.setAttribute("warning", warning);
+                    //登録情報変更の場合
+                    case "REINPUT":
                     destination = "/WEB-INF/jsp/registration.jsp";
+                    return; 
+                
+                    //登録する場合
+                    case "REGIST":
+                    UserData udb = (UserData)session.getAttribute("udb");
+                
+                    //同じユーザー名とパスワードがあれば登録不可
+                    if(!RegistrationLogic.getInstance().checkUserDataInDB(udb)){
+                        String warning = "登録できません. 別のユーザ名又はパスワードを入力してください";
+                        System.out.println("WARNING!!!");
+                        request.setAttribute("warning", warning);
+                        destination = "/WEB-INF/jsp/registration.jsp";
+                        return;
+                    }
+                
+                    RegistrationLogic.getInstance().insertUserData2DB(udb);
+                    request.setAttribute("udb", udb);
+                
+                    //セッション内に保存されていた一時インスタンスを削除
+                    session.removeAttribute("udb");
+                    destination = "/WEB-INF/jsp/registrationcomplete.jsp";
                     return;
+                
+                    default:
+                    break;
                 }
-                
-                RegistrationLogic.getInstance().insertUserData2DB(udb);
-                request.setAttribute("udb", udb);
-                
-                //セッション内に保存されていた一時インスタンスを削除
-                session.removeAttribute("udb");
-                destination = "/WEB-INF/jsp/registrationcomplete.jsp";
-                return;
-                
-                default:
-                break;
-            }
             }
             
             //登録確認画面

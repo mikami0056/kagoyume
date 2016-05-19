@@ -30,7 +30,7 @@
         }%></p>
         <p>メールアドレス:<%= loginAccount.getMail()%></p>
         <p>住所:<%= loginAccount.getAddress()%></p>
-        <p>総購入金額:<%= loginAccount.getSum()%></p>
+        <p>総購入金額:<%= loginAccount.getTotal()%></p>
         <input type="submit" name="delete" value="削除">
         <input type="hidden" name="operation" value="delete">
         </form>

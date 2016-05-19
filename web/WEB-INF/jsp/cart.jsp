@@ -34,14 +34,15 @@
         <jsp:include page="/WEB-INF/jsp/loginheader.jsp"/>
         <%-- CartWithUserIDが存在し, 商品が最低でも一つ入っている--%>
         <%if(Cart != null && Cart.get(userID).size() != 0){
-            Integer sum = 0;
             Set<ItemDataBeans> items = Cart.get(userID);
             for(ItemDataBeans item : items){%>
             <img src="<%= item.getImgUrl()%>"><br>
             <a href ="Item?index=<%= item.getIndex()%>">商品名:<%= item.getName()%></a><br>
-            個数:<%= item.getNumber()%><br>
-            値段:<%= item.getPrice()%><br>
-            小計:<%= item.getPrice() * item.getNumber()%><br>
+            個数：<%= item.getNumber()%><br>
+            <font face="sans-serif">
+            値段：¥ <%= item.getPrice()%><br></font>
+            <font face="sans-serif" color="#ff3366">
+            小計：¥ <%= item.getPrice() * item.getNumber()%><br></font>
             <%allSum += item.getPrice() * item.getNumber();%>
             <form action="/kagoyume/Buy" method="POST">
                 <input type="submit" name="buy" value="購入確認"><%if(!exist){out.println("未ログインのため, ログイン画面にジャンプします");}%>

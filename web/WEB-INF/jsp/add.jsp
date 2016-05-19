@@ -24,6 +24,6 @@
         <form action="/kagoyume/Cart" method="GET">
             <input type="submit" value="カートを確認">
         </form>
-        <%= mh.indexJumper()%>
+        <br><%= mh.indexJumper()%>
     </body>
 </html>

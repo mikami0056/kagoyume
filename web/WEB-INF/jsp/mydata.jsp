@@ -25,7 +25,7 @@
         <p>名前:<%= loginAccount.getName()%></p>
         <p>住所:<%= loginAccount.getAddress()%></p>
         <p>メールアドレス:<%= loginAccount.getMail()%></p>
-        <p>購入金額合計:<%= loginAccount.getSum()%></p>
+        <p>購入金額合計:<%= loginAccount.getTotal()%></p>
         <form action="/kagoyume/MyData" method="GET">
             <input type="submit" name="update" value="登録情報更新">
             <input type="hidden" name="operation" value="update">
