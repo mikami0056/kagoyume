@@ -93,12 +93,15 @@ public class MyData extends HttpServlet {
         
         System.out.println("[Notice]MyData.java by doPost start");
         HttpSession session = request.getSession();
-        
+        //遷移先保存用変数
         String destination = "";
+        //mydata.jspより送られてきた値を保存
         String operation = request.getParameter("operation");
+        //ログインしているユーザ情報を取得
         UserData loginAccount = (UserData)session.getAttribute("loginAccount");
         switch(operation){
             
+            //ユーザ情報更新
             case "update":
             //mydata.jspからフォームを取得
             String userName = request.getParameter("userName");
@@ -118,8 +121,10 @@ public class MyData extends HttpServlet {
             destination = "/WEB-INF/jsp/myupdateresult.jsp";
             break;
             
+            //ユーザ情報削除
             case "delete":
             System.out.println("DELETE");
+            //ユーザー情報削除
             MyDeleteLogic.getInstance().deleteUserData(loginAccount);
             session.removeAttribute("loginAccount");
             session.invalidate();
